@@ -2,6 +2,7 @@ import SearchForm from "@/components/SearchForm";
 import ProductList from "@/components/ProductList";
 import { useEffect, useState } from "react";
 import axios from "@/lib/axios";
+import Link from "next/link";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <main>
       <h1>Codeit Mall</h1>
+      <Link href="/settings">설정</Link>
       <SearchForm />
       <ProductList products={products} />
     </main>
