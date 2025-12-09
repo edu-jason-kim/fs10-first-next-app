@@ -12,9 +12,22 @@
   align-items: center;
   position: relative;
   text-decoration: none;
+  aspect-ratio: 1/1;
 }
 
 .productName {
   font-size: 20px;
   font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .productList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .productList {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

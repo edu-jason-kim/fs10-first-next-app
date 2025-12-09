@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import styles from './ProductList.module.css';
+import Link from "next/link";
+import styles from "./ProductList.module.css";
+import Image from "next/image";
 
 export default function ProductList({ products = [] }) {
   return (
@@ -7,16 +8,19 @@ export default function ProductList({ products = [] }) {
       {products.map((product) => (
         <li key={product.id}>
           <Link className={styles.product} href={`/products/${product.id}`}>
-            <img
+            <Image
               src={product.imgUrl}
-              width="300"
-              height="300"
+              fill
+              sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
               alt={product.name}
             />
+          </Link>
+
+          <div>
             <span className={styles.productName}>{product.name}</span>
             <br />
             {product.price.toLocaleString()}원
-          </Link>
+          </div>
         </li>
       ))}
     </ul>
